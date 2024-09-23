@@ -1,0 +1,7 @@
+setup.py
+tests/tests_common.py
+traces/chipwhisperer_traces.egg-info/PKG-INFO
+traces/chipwhisperer_traces.egg-info/SOURCES.txt
+traces/chipwhisperer_traces.egg-info/dependency_links.txt
+traces/chipwhisperer_traces.egg-info/requires.txt
+traces/chipwhisperer_traces.egg-info/top_level.txt

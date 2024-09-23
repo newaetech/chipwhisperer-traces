@@ -1,0 +1,8 @@
+setup.py
+tests/tests_common.py
+traces/cwtraces/__init__.py
+traces/cwtraces.egg-info/PKG-INFO
+traces/cwtraces.egg-info/SOURCES.txt
+traces/cwtraces.egg-info/dependency_links.txt
+traces/cwtraces.egg-info/requires.txt
+traces/cwtraces.egg-info/top_level.txt
