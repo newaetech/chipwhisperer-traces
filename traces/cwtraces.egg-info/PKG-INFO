@@ -1,14 +1,7 @@
 Metadata-Version: 2.1
 Name: cwtraces
-Version: 1.0
-Summary: ChipWhisperer Jupyter Traces
-Home-page: https://www.chipwhisperer.com
-Author: NewAE Technology Inc.
-Author-email: support@newae.com
-License: GPLv3
-Project-URL: Documentation, https://chipwhisperer.readthedocs.io
-Project-URL: Source, https://github.com/newaetech/chipwhisperer
-Project-URL: Issue Tracker, https://github.com/newaetech/chipwhisperer/issues
-Requires-Python: ~=3.7
+Version: 0.0.1
+Author-email: "NewAE Technology Inc." <support@newae.com>
+Requires-Python: >=3.9
 Requires-Dist: numpy
 Requires-Dist: chipwhisperer

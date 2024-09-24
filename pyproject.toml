@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools >= 61.0", "setuptools_scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+version = "0.0.1"  # Remove any existing version parameter.
+# dynamic = ["version"]
+name = "cwtraces"
+authors=[{name="NewAE Technology Inc.", email="support@newae.com"}]
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "chipwhisperer",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["traces"]
