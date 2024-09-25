@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Test Testpypi
 
 # Controls when the workflow will run
 on:
@@ -30,7 +30,7 @@ jobs:
           python-version: 3.9
       - name: Install cwtraces
         run: >-
-          pip install --index-url https://test.pypi.org/simple/ cwtraces
+          pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ cwtraces
       - name: Run tests
         run: |
           cd tests
