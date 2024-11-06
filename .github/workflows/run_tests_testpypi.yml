@@ -15,7 +15,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  lint:
+  lint-test:
     # The type of runner that the job will run on
     name: Run tests
     runs-on: ubuntu-latest
@@ -31,6 +31,27 @@ jobs:
       - name: Install cwtraces
         run: >-
           pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ cwtraces
+      - name: Run tests
+        run: |
+          cd tests
+          for i in *.py; do python "$i"; done
+
+  lint-normal:
+    # The type of runner that the job will run on
+    name: Run tests
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Setup Python 3.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+      - name: Install cwtraces
+        run: >-
+          pip install cwtraces
       - name: Run tests
         run: |
           cd tests
