@@ -17,7 +17,7 @@ jobs:
   # This workflow contains a single job called "build"
   lint-test:
     # The type of runner that the job will run on
-    name: Run tests
+    name: Run tests on testpypi
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -38,7 +38,7 @@ jobs:
 
   lint-normal:
     # The type of runner that the job will run on
-    name: Run tests
+    name: Run tests on pypi
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
