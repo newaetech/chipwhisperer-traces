@@ -2,7 +2,7 @@ from cwtraces import sca101_lab_data
 import numpy as np
 from tqdm import trange
 
-data = sca101_lab_data["lab4_1"]()
+data = sca101_lab_data["lab4_2"]()
 trace_array =  data["trace_array"]
 textin_array = data["textin_array"]
 key = data["key"]
