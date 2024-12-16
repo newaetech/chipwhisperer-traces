@@ -5,7 +5,7 @@ import pickle
 import random
 import time
 
-def gen_numpy_trace_text_func(lab_name):
+def gen_numpy_trace_text_func(lab_name, course_name="sca101"):
     def load_trace_text():
         """Load lab data as a dictionary as numpy arrays
 
@@ -13,8 +13,8 @@ def gen_numpy_trace_text_func(lab_name):
             data = lab_data['lab3_1']()
             data['trace_array']
         """
-        trace_array =  np.load(resources.files("cwtraces").joinpath("{}_traces.npy".format(lab_name)))
-        textin_array = np.load(resources.files("cwtraces").joinpath("{}_textin.npy".format(lab_name)))
+        trace_array =  np.load(resources.files("cwtraces").joinpath("{}/{}_traces.npy".format(course_name, lab_name)))
+        textin_array = np.load(resources.files("cwtraces").joinpath("{}/{}_textin.npy".format(course_name, lab_name)))
         rtn = {"trace_array": trace_array, "textin_array": textin_array}
         try:
             key = np.load(resources.files("cwtraces").joinpath("{}_key.npy".format(lab_name)))
@@ -30,7 +30,7 @@ numpy_trace_text_lab_names = ["lab3_1", "lab3_3", "lab4_1", "lab4_2"]
 
 sca101_lab_data = {}
 def cap_pass_trace(pass_guess):
-    traces_to_load = pickle.load(open(resources.files("cwtraces").joinpath("lab2_1b_passwords_full.p"), "rb"))
+    traces_to_load = pickle.load(open(resources.files("cwtraces").joinpath("sca101/lab2_1b_passwords_full.p"), "rb"))
     if pass_guess.endswith("\n") is False:
         raise ValueError("Password guess must end with \\n")
         
@@ -61,6 +61,12 @@ def cap_pass_trace(pass_guess):
     # print (recorded_pw)
     return traces_to_load[recorded_pw][random.randint(0, 99)]
 
+def sca204_load_traces(filename):
+    np.load(resources.files("cwtraces").joinpath("sca204/{}".format(filename)), allow_pickle=True)
+
+def sca205_load_traces(filename):
+    np.load(resources.files("cwtraces").joinpath("sca205/{}".format(filename)), allow_pickle=True)
+    
 
 sca101_lab_data["lab2_1"] = {"cap_pass_trace": cap_pass_trace}
 
@@ -68,3 +74,7 @@ for lab in numpy_trace_text_lab_names:
     sca101_lab_data[lab] = gen_numpy_trace_text_func(lab)
 
 sca101_lab_data["lab4_3"] = {"project": lambda: cw.open_project(resources.files("cwtraces").joinpath("Lab_4_3.cwp"))}
+
+sca201_lab_data = {}
+sca204_lab_data = {"get_traces": sca204_load_traces}
+sca205_lab_data = {"get_traces": sca205_load_traces}
