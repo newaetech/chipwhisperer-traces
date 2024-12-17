@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: cwtraces
-Version: 0.0.1
+Version: 0.2.0
 Author-email: "NewAE Technology Inc." <support@newae.com>
 Requires-Python: >=3.9
 Requires-Dist: numpy

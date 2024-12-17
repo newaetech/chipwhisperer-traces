@@ -17,7 +17,7 @@ def gen_numpy_trace_text_func(lab_name, course_name="sca101"):
         textin_array = np.load(resources.files("cwtraces").joinpath("{}/{}_textin.npy".format(course_name, lab_name)))
         rtn = {"trace_array": trace_array, "textin_array": textin_array}
         try:
-            key = np.load(resources.files("cwtraces").joinpath("{}_key.npy".format(lab_name)))
+            key = np.load(resources.files("cwtraces").joinpath("{}/{}_key.npy".format(course_name, lab_name)))
             rtn["key"] = key
         except:
             pass
@@ -73,7 +73,7 @@ sca101_lab_data["lab2_1"] = {"cap_pass_trace": cap_pass_trace}
 for lab in numpy_trace_text_lab_names:
     sca101_lab_data[lab] = gen_numpy_trace_text_func(lab)
 
-sca101_lab_data["lab4_3"] = {"project": lambda: cw.open_project(resources.files("cwtraces").joinpath("Lab_4_3.cwp"))}
+sca101_lab_data["lab4_3"] = {"project": lambda: cw.open_project(resources.files("cwtraces").joinpath("sca101/Lab_4_3.cwp"))}
 
 sca201_lab_data = {}
 sca204_lab_data = {"get_traces": sca204_load_traces}
